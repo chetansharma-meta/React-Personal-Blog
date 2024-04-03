@@ -5,11 +5,14 @@ import { login, logout } from './store/authSlice'
 import { Outlet } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import { BoltLoaderComponent } from './components/Loaders/BoltLoader'
 
 
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+
+  
 
   useEffect(() => {
     Auth.getCurrentUser()
@@ -36,7 +39,7 @@ function App() {
     </div>
   ) : (
     <div className='min-h-screen flex items-center justify-center'>
-      <p>Loading...</p>
+       <BoltLoaderComponent />
     </div>
   )
 }
