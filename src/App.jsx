@@ -1,7 +1,7 @@
 
 
-function App() {
-  console.log(import.meta.env.VITE_APPWRITE_URL);
+function App() { 
+  
 
   return (
     <div className="text-center font-bold">
