@@ -34,10 +34,9 @@ function Login() {
         <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px] text-3xl text-green-600 font-bold">
-                        Jpathy 
+                        Login 
                     </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">Welcome, Dr. Devesh Jangid</h2>
        
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className='mt-8'>
