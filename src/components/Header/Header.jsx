@@ -96,7 +96,7 @@ function Header() {
         </div>
         <div className='h-auto w-auto flex flex-row gap-5'>
           {authStatus && (
-              <li className='hover:text-gray-950 list-none text-gray bg-lime-300'>
+              <li className=' list-none text-gray'>
                 <LogoutBtn />
               </li>
             )}

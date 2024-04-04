@@ -4,6 +4,7 @@ import appwriteService from "../appwrite/config";
 import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import  image  from  '../static/Blog.png'
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -33,11 +34,11 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8">
+        <div className="py-8 text-white mt-10">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={image}
                         alt={post.title}
                         className="rounded-xl"
                     />
@@ -56,11 +57,15 @@ export default function Post() {
                     )}
                 </div>
                 <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                    <h1 className="text-2xl font-bold"> <span className="text-3xl">Title:</span> {post.title}</h1>
                 </div>
                 <div className="browser-css">
-                    {parse(post.content)}
+                {post.content && (
+                    <div className="mt-4">
+                        <span className="text-3xl">Content:</span> {post.content}
                     </div>
+                )}
+                </div>
             </Container>
         </div>
     ) : null;

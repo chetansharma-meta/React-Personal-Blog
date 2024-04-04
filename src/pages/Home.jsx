@@ -1,31 +1,41 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import appwriteService from "../appwrite/config";
-import {Container, PostCard} from '../components'
+import { Container, PostCard } from '../components';
+import { AcademicCapIcon } from '@heroicons/react/24/solid'
 
 function Home() {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         appwriteService.getPosts().then((posts) => {
             if (posts) {
-                setPosts(posts.documents)
+                setPosts(posts.documents);
+                setLoading(false);
             }
-        })
-    }, [])
-  
+        });
+    }, []);
+
     return (
-        <div className='w-full mt-[150px] h-screen'>
+        <div className='w-full mt-20 h-screen'>
             <Container>
-                <div className='flex flex-wrap h-[300]' >
-                    {posts.map((post) => (
-                        <div key={post.$id} className='p-2 w-1/4 h-full'>
-                            <PostCard {...post} />
-                        </div>
-                    ))}
-                </div>
+                <h1 className='text-4xl font-bold mb-4 text-lime-400'>Posts</h1>
+                {loading ? (
+                   <div className='flex justify-center items-center h-[500px]'>
+                          <AcademicCapIcon className='w-20 h-20 animate-spin text-lime-400' />
+                     </div>
+                ) : (
+                    <div className='flex flex-wrap'>
+                        {posts.map((post) => (
+                            <div key={post.$id} className='p-2 w-1/4 h-auto'>
+                                <PostCard {...post} />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </Container>
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;
