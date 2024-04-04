@@ -5,7 +5,7 @@ import Input from "./Input"
 
 import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
-import {useForm} from "react-hook-form"
+import {set, useForm} from "react-hook-form"
 
 function Login() {
     const navigate = useNavigate()
@@ -29,11 +29,11 @@ function Login() {
 
   return (
     <div
-    className='flex items-center justify-center w-full m-auto h-screen bg-gray-50'
+    className='flex items-center justify-center w-full m-auto h-screen '
     >
         <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px] text-3xl text-green-600 font-bold">
+                    <span className="inline-block w-full max-w-[100px] text-3xl text-[#4f3ac6] font-bold">
                         Login 
                     </span>
         </div>
@@ -63,7 +63,15 @@ function Login() {
                 />
                 <button
                 type="submit"
-                className="w-full bg-blue-400 py-2 rounded-full"
+                className="w-full bg-blue-400 py-2 rounded-full text-white"
+                onClick={() => {
+                    if (login) {
+                        setTimeout(() => {
+                            navigate('/')
+                            window.location.reload();
+                        }, 3000)
+                    }
+                }}
                 >Sign in</button>
             </div>
         </form>
