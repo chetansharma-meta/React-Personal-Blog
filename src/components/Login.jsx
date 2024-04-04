@@ -7,7 +7,7 @@ import {useDispatch} from "react-redux"
 import authService from "../appwrite/auth"
 import {useForm} from "react-hook-form"
 
-function Loginpage() {
+function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {register, handleSubmit} = useForm()
@@ -20,12 +20,10 @@ function Loginpage() {
             if (session) {
                 const userData = await authService.getCurrentUser()
                 if(userData){ dispatch(login(userData)) };
+                navigate("/")
             }
         } catch (error) {
-            console.log("Loginpage :: login :: error", error);
-            navigate("/")
-            window.location.reload()
-
+            setError(error.message)
         }
     }
 
@@ -75,4 +73,4 @@ function Loginpage() {
   )
 }
 
-export default Loginpage
+export default Login
