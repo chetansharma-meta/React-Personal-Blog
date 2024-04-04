@@ -1,46 +1,38 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import Auth from './appwrite/auth'
-import { login, logout } from './store/authSlice'
+import './App.css'
+import authService from "./appwrite/auth"
+import {login, logout} from "./store/authSlice"
+import { Footer, Header } from './components'
 import { Outlet } from 'react-router-dom'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-
 
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
 
-  
-
   useEffect(() => {
-    Auth.getCurrentUser()
+    authService.getCurrentUser()
     .then((userData) => {
       if (userData) {
-        dispatch(login({ userData }))
+        dispatch(login({userData}))
       } else {
         dispatch(logout())
       }
     })
     .finally(() => setLoading(false))
-  }
-    , [dispatch])
-
+  }, [])
+  
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between'>
-      <div className='w-full block text-center'>
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
         <Header />
-        <main className='mt-10'>
-          <Outlet />
+        <main>
+        TODO:  <Outlet />
         </main>
         <Footer />
       </div>
     </div>
-  ) : (
-    <div className='min-h-screen flex items-center justify-center'>
-
-    </div>
-  )
+  ) : null
 }
 
 export default App
