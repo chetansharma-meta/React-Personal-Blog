@@ -5,7 +5,6 @@ import { login, logout } from './store/authSlice'
 import { Outlet } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import { BoltLoaderComponent } from './components/Loaders/BoltLoader'
 
 
 function App() {
@@ -16,22 +15,22 @@ function App() {
 
   useEffect(() => {
     Auth.getCurrentUser()
-      .then((userData) => {
-        if (userData) {
-          dispatch(login({ userData }))
-        } else {
-          dispatch(logout())
-        }
-      })
-      .finally(() => setLoading(false))
+    .then((userData) => {
+      if (userData) {
+        dispatch(login({ userData }))
+      } else {
+        dispatch(logout())
+      }
+    })
+    .finally(() => setLoading(false))
   }
     , [dispatch])
 
   return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+    <div className='min-h-screen flex flex-wrap content-between'>
       <div className='w-full block text-center'>
         <Header />
-        <main>
+        <main className='mt-10'>
           <Outlet />
         </main>
         <Footer />
@@ -39,7 +38,7 @@ function App() {
     </div>
   ) : (
     <div className='min-h-screen flex items-center justify-center'>
-       <BoltLoaderComponent />
+
     </div>
   )
 }
