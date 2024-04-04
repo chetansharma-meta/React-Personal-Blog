@@ -17,7 +17,7 @@ function Home() {
     }, []);
 
     return (
-        <div className='w-full mt-20 h-screen'>
+        <div className='w-full my-20 h-screen'>
             <Container>
                 <h1 className='text-4xl font-bold mb-4 text-lime-400'>Posts</h1>
                 {loading ? (
