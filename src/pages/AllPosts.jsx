@@ -16,7 +16,7 @@ function AllPosts() {
     }, []);
 
   return (
-    <div className='w-full h-screen py-8 my-12'>
+    <div className='w-full h-auto py-8 my-12'>
     
         <Container>
         
