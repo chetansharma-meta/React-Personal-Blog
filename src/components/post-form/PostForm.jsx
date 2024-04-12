@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function PostForm({ post }) {
-    const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
+    const { register, handleSubmit, watch, setValue, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
             slug: post?.$id || "",
@@ -83,7 +83,15 @@ export default function PostForm({ post }) {
                     }}
                     maxLength={20}
                 />
-                <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
+                <textarea
+                 className="w-full h-48 p-2 bg-gray-800 text-white border border-gray-600 rounded-lg mb-4"
+                 placeholder="Type your content here..."
+                 name="content"  
+                 cols="30" 
+                 rows="10" 
+                    {...register("content", { required: true })}
+                 />
+                {/* <RTE label="Content :" name="content" control={control}  /> */}
             </div>
             <div className="w-1/3 px-2">
                 
