@@ -18,7 +18,7 @@ function PostCard({$id, title, premium}) {
             <h2
             className='text-xl font-bold text-center underline py-5'
             >{title}</h2>
-            <h2 className={`text-xl ${premium === "true" ? "bg-slate-500 rounded-full p-2 text-center text-white shadow-xl" : "" }`}>{premium === "true" ? "Premium" : ""}</h2>
+            <h2 className={`text-xl ${premium === "true" ? "bg-slate-600 rounded-full p-2 text-center text-white shadow-xl" : "" }`}>{premium === "true" ? "Premium" : ""}</h2>
 
         </div>
     </Link>
