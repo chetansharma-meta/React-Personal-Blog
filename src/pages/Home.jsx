@@ -17,7 +17,7 @@ function Home() {
     }, []);
 
     return (
-        <div className='w-full my-20 h-screen'>
+        <div className='w-full my-20 h-auto'>
             <Container>
                 <h1 className='text-4xl font-bold mb-4 text-lime-400'>Posts</h1>
                 {loading ? (
@@ -26,7 +26,7 @@ function Home() {
                      </div>
                 ) : (
                     <div className='flex flex-wrap'>
-                        {posts.map((post) => (
+                            {posts.slice(0, 8).map((post) => (
                             <div key={post.$id} className='p-2 w-1/4 h-auto'>
                                 <PostCard {...post} />
                             </div>
