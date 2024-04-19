@@ -95,12 +95,14 @@ export default function PostForm({ post }) {
                 {/* <RTE label="Content :" name="content" control={control}  /> */}
             </div>
             <div className="w-1/3 px-2">
-                <Select
-                    options={[{text: "True", value: "true"},{text: "False", value: "false"}]}
-                    label="premium"
-                    className="mb-4"
-                    {...register("premium", { required: true })}
-                />
+            <label className="block text-sm font-medium text-white-700 mb-2">Premium</label>
+            <Select
+            options={[{text: "True", value: "true"},{text: "False", value: "false"}]}
+            label="premium"
+            className="mb-4"
+            {...register("premium", { required: true })}
+            />
+            <label className="block text-sm font-medium text-white-700 mb-2">Post Type</label>
                 <Select
                     options={[{text: "Active", value: "active"},{text: "inActive", value: "inactive"}]}
                     label="Status"
