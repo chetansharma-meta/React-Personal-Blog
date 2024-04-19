@@ -12,6 +12,7 @@ export default function PostForm({ post }) {
             slug: post?.$id || "",
             content: post?.content || "",
             status: post?.status || "active",
+            premium: post?.premium || "false",
         },
     });
 
@@ -82,12 +83,18 @@ export default function PostForm({ post }) {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
+            
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2">
-                
                 <Select
-                    options={["active", "inactive"]}
+                    options={[{text: "True", value: "true"},{text: "False", value: "false"}]}
+                    label="premium"
+                    className="mb-4"
+                    {...register("premium", { required: true })}
+                />
+                <Select
+                    options={[{text: "Active", value: "active"},{text: "inActive", value: "inactive"}]}
                     label="Status"
                     className="mb-4"
                     {...register("status", { required: true })}

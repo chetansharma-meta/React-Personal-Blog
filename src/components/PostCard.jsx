@@ -3,7 +3,7 @@ import appwriteService from "../appwrite/config"
 import {Link} from 'react-router-dom'
 import image from '../static/thumbnail.png'
 
-function PostCard({$id, title}) {
+function PostCard({$id, title, premium}) {
     
   return (
     <Link to={`/post/${$id}`}>
@@ -18,6 +18,8 @@ function PostCard({$id, title}) {
             <h2
             className='text-xl font-bold text-center underline py-5'
             >{title}</h2>
+            <h2>{premium ==="true"? "Premium" :""}</h2>
+
         </div>
     </Link>
   )
