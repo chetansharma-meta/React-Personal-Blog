@@ -19,4 +19,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-If you have any questions or suggestions regarding the Blog project, please feel free to contact Chetan Sharma at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or suggestions regarding the Blog project, please feel free to contact Chetan Sharma at [your-email@example.com](mailto:ch9412233@example.com).
