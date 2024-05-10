@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Container, PostCard } from '../components'
 import appwriteService from "../appwrite/config";
-import { AcademicCapIcon } from '@heroicons/react/24/solid'
+import { AcademicCapIcon } from '@heroicons/react/24/solid'                                                                                                 
 
 function AllPosts() {
     const [posts, setPosts] = useState([]);
